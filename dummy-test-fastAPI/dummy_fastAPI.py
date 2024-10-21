@@ -1,12 +1,22 @@
 from fastapi import FastAPI
-import calibration.cal_test_fastAPI as ctf
+# import cal_test_fastAPI as ctf
+import sys
+import os
+
+# Add the current directory to sys.path
+sys.path.append(os.path.dirname(__file__))
+
+# Now you should be able to import
+# import cal_test_fastAPI
+
+import cal_test_fastAPI as ctf
 import uvicorn
 
 app = FastAPI()
 
 @app.get("/")
 async def root():
-    cal_result = ctf.run()
+    cal_result = ctf.run()git
     return {"message": cal_result}
 
 @app.get("/set_serial_number/{serial_number}")
@@ -89,5 +99,6 @@ def run():
     uvicorn.run("calibration.dummy_fastAPI:app", host="127.0.0.1", port=8000)
     return
 
-if __name__ == "__main__":
-    run()
+# if __name__ == "__main__":
+#     run()
+run()
