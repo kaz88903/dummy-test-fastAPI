@@ -16,7 +16,7 @@ app = FastAPI()
 
 @app.get("/")
 async def root():
-    cal_result = ctf.run()git
+    cal_result = ctf.run()
     return {"message": cal_result}
 
 @app.get("/set_serial_number/{serial_number}")
